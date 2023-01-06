@@ -1,0 +1,28 @@
+﻿@using PortfolioProject.Areas.Admin.Models;
+@model ProjectsModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h1>Edit</h1>
+
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(a=>a.ProjectId)
+  <label asp-for="ProjectName"></label>
+    <input asp-for="ProjectName" />
+    <label asp-for="ProjectDescription"></label>
+    <input asp-for="ProjectDescription" />
+    <label asp-for="ProjectSiteLink"></label>
+    <input asp-for="ProjectSiteLink" />
+    <label asp-for="ProjectGithubLink"></label>
+    <input asp-for="ProjectGithubLink" />
+    <label asp-for="ProjectImage"></label>
+    <input asp-for="ProjectImage" />
+
+    <button type="submit" asp-action="Create" asp-area="Admin" asp-controller="Projects">Submit</button>
+
+</form>

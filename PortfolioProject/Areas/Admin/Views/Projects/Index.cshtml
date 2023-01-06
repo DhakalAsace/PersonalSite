@@ -1,0 +1,63 @@
+﻿@using PortfolioProject.Areas.Admin.Models
+@model IEnumerable<ProjectsModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/_Layout.cshtml";
+}
+
+<h1>All Projects</h1>
+
+<style>
+    td, th {
+        paddingborder: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    }
+</style>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Project Name</th>
+            <th scope="col">Project Description</th>
+            <th scope="col">Project Site link</th>
+            <th scope="col">Project GitHub Link</th>
+            <th scope="col">Project Image</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProjectName</td>
+            <td>@item.ProjectDescription</td>
+            <td>@item.ProjectSiteLink</td>
+            <td>@item.ProjectGithubLink</td>
+            <td><img src="~/customimg/@item.ProjectImageUrl" style="width:40px; height:40px;" />
+            </td>
+                <td>
+                    <button class="btn-outline-danger">
+                        <a style="text-decoration:none" asp-route-Id="@item.ProjectId" asp-action="Edit" asp-area="Admin" asp-controller="Projects">Edit</a></button>
+                  <button class="btn-outline-danger">  <a style="text-decoration:none" asp-route-Id="@item.ProjectId" asp-action="Delete" asp-area="Admin" a
+           sp-controller="Projects">Delete</a> </button> </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+    
+
+   
+
+<button class="btn-warning"><a style="text-decoration:none" asp-action="Create">Create New Profile</a></button>

@@ -1,0 +1,49 @@
+﻿@using PortfolioProject.Areas.Admin.Models
+@model IEnumerable<ProfileModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<style>
+    td, th {
+paddingborder: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+
+    } 
+    }
+</style>
+
+    <table>
+
+    
+    <tr>
+        <th>
+            Image Name
+        </th>
+        <th>
+            Decription
+        </th>
+        <th>
+          Image
+        </th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {<tr>
+        <td>@item.ImageName</td>
+        <td>@item.Description</td>
+            <td>  <img src="~/customimg/@item.ImageUrl" style="width:40px; height:40px;"/> 
+                </td>
+            <td>  <button class="btn-outline-danger"><a style="text-decoration:none" asp-route-Id="@item.ImageId" asp-action="Edit" asp-area="Admin" asp-controller="Profile">Edit</a></button> </td>
+            <td> <button class="btn-outline-danger"><a style="text-decoration:none" asp-route-Id="@item.ImageId" asp-action="Delete" asp-area="Admin" asp-controller="Profile">Delete</a> </button></td>
+
+        </tr>
+
+    }
+</table>
+<button class="btn-warning"><a style="text-decoration:none" asp-action="Create">Create New Profile</a></button>

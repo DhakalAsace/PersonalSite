@@ -1,0 +1,24 @@
+﻿@using PortfolioProject.Areas.Admin.Models
+@model ProjectsModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <label readonly asp-for="ProjectName"></label>
+    <input readonly asp-for="ProjectName" />
+    <label readonly asp-for="ProjectDescription"></label>
+    <input readonly asp-for="ProjectDescription" />
+    <label readonly asp-for="ProjectSiteLink"></label>
+    <input readonly asp-for="ProjectSiteLink" />
+    <label readonly asp-for="ProjectGithubLink"></label>
+    <input readonly asp-for="ProjectGithubLink" />
+    <label readonly asp-for="ProjectImage"></label>
+    <input readonly asp-for="ProjectImage" />
+    <button type="submit" asp-action="Delete" asp-area="Admin" asp-controller="Projects">Submit</button>
+
+</form>

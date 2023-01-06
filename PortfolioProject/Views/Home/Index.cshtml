@@ -1,0 +1,189 @@
+﻿@using PortfolioProject.Areas.Admin.ViewModels;
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/js/script.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="660bf8">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <title>Ashesh Dhakal</title>
+    <link href="~/css/stylesheet.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div id="app">
+    
+      
+        <div class="row">
+            <div class="header" id="header">
+                
+                <div class="header__container">
+                    @foreach (var item in Model.ProfileModels){
+                    <img src="~/customimg/@item.ImageUrl" class="header__image">
+                    }
+                    <h1 class="header__title" >
+                        @foreach (var item in Model.ProfileModels)
+                        {
+                            @item.ImageName
+
+                        }
+                    </h1>
+                    <p class="header__description">
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model.ProfileModels)
+                            {
+                                @item.Description
+
+                            }
+                        }
+                    </p>
+                    <div class="header__social_icons">
+                        <a href="https://github.com/DhakalAsace">
+                            <img src="~/images/github.svg" />
+
+                        </a>
+                        <a href="https://twitter.com/AsheshDhakal7">
+                            <img src="~/images/twitter.svg" />
+                            </a>
+                        <a href="https://www.linkedin.com/in/ashesh-dhakal/">
+                            <img src="~/images/linkden.svg" />
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="projects">
+                <div class="projects__container">
+                    <h1 class="projects__title">
+                        Projects
+                    </h1>
+                    
+                    <ul class="projects__list">
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model.ProjectsModels)
+                            {
+
+
+                                <li class="project">
+                                    <td class="about__container">
+                                        <div class="about__column">
+
+                                            <a href="@item.ProjectSiteLink"> <img src="~/customimg/@item.ProjectImageUrl" class="about__cover" :alt="about_image_alt_text" style="scroll-padding-right:10px;scroll-padding-top:10px;scroll-padding-bottom:10px;scroll-padding-left:10px;"></a>
+                                            
+                                    </div>
+                                    </td>
+
+
+                                    <div class="project__content">
+                                        <h2 class="project__title">
+                                            @item.ProjectName
+
+
+                                          
+                                            <a href="@item.ProjectGithubLink" >
+                                                <img src="~/images/github-512.webp" class="about__cover" style="height:35px;width:35px;float:right;" />
+                                                </a>
+                                               
+                                            <a href="@item.ProjectSiteLink" >
+                                                <img src="~/images/logo-website-file-globe-icon-svg-wikimedia-commons-21.png" class="about__cover" style="height:35px;width:35px; float:right;padding-right:15px;" />
+                                                </a>
+                                           
+                                        </h2>
+
+                                        <p class="project__description block-ellipsis"> @item.ProjectDescription</p>
+                                            
+                                                
+                                    </div>
+
+
+                                </li>
+
+                            }
+                        }
+
+                                                       
+                       
+                   
+
+                </div>
+            </div>
+       </div>
+       
+
+        
+
+
+    <!-- About Me -->
+
+    <div class="row">
+        
+                <div class="about__container">
+                    <div class="about__columns">
+                        <div class="about__column">
+                            <h1 class="about__title">
+                                About me
+                            </h1>
+                            <p class="about__description">
+                                @foreach (var item in Model.AboutModels)
+                                {
+                                    @item.AboutDescription
+                                }
+                            </p>
+                        </div>
+
+                        <div class="about__column">
+                                        @foreach (var item in Model.AboutModels)
+                                        {
+
+
+                            <img src="~/customimg/@item.AboutImageUrl" class="about__cover" :alt="about_image_alt_text" style="padding-top:80px;">
+                                        }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+       
+
+
+        <!-- Footer -->
+
+        <div class="row">
+            <div class="footer">
+                <div class="footer__container">
+                    <p class="footer__content">
+                        <b>&copy; 2023 Ashesh Dhakal </b>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

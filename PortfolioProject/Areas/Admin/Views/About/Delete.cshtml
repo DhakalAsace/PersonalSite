@@ -1,0 +1,17 @@
+﻿@using PortfolioProject.Areas.Admin.Models
+@model AboutModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <label asp-for="AboutDescription"></label>
+    <input asp-for="AboutDescription" />
+    <label asp-for="AboutImage"></label>
+    <input asp-for="AboutImage" />
+    <button type="submit" asp-action="Delete" asp-area="Admin" asp-controller="About">Submit</button>
+
+</form>
